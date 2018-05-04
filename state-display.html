@@ -1,0 +1,70 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
+
+<dom-module id="state-display">
+  <template strip-whitespace>
+    <style>
+      /* shadow DOM styles go here */
+      :host {
+        display: block;
+      }
+    </style>
+
+    <canvas style="vertical-align:middle;" id="canvas"></canvas>
+    <span style="vertical-align:middle;padding-left:0.5em;"><slot></slot></span>
+  </template>
+
+  <script>
+    class StateDisplay extends Polymer.mixinBehaviors([Polymer.IronResizableBehavior], Polymer.Element) {
+      static get is() {
+        return 'state-display';
+      }
+
+      static get properties() {
+        return {
+          state: {
+            type: String,
+            value: 'white',
+            reflectToAttribute: true,
+            observer: '_draw'
+          },
+        };
+      }
+
+      constructor() {
+        super();
+      }
+
+      ready(){
+        super.ready();
+
+        this.addEventListener('iron-resize', this._resize);
+      }
+
+      _draw(){
+        const ctx = this.$.canvas.getContext('2d');
+        const size = this.$.canvas.width;
+
+        console.log(this.state);
+        ctx.fillStyle = this.state;
+
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = size * 0.03;
+
+        ctx.beginPath();
+        ctx.arc(size / 2, size / 2, 0.47 * size, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+      }
+
+      _resize(){
+        let size = parseFloat(getComputedStyle(this.parentNode).fontSize);
+        this.$.canvas.width = size;
+        this.$.canvas.height = size;
+
+        this._draw();
+      }
+    }
+    customElements.define(StateDisplay.is, StateDisplay);
+  </script>
+</dom-module>

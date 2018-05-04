@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script>
+      /*
+      window.Polymer = window.Polymer || {};
+      window.Polymer.dom = 'shadow';
+      */
+    </script>
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../state-display.html">
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>state-display demo</h3>
+      <demo-snippet>
+        <template>
+          <style>
+            :host {
+              font-family: sans-serif;
+            }
+          </style>
+
+          <h3>Statically configured state-displays</h3>
+
+          <state-display state="white">White</state-display>
+          <state-display state="green">Green</state-display>
+          <state-display state="yellow">Yellow</state-display>
+          <state-display state="red">Red</state-display>
+
+          <state-display state="white">Lorem ipsum dolor sit amet, consectetur
+          adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna
+          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+          laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+          </state-display>
+
+          <state-display state="white">
+          <div style="display:block;padding-left:1.5em; margin-top:-1.5em;">
+          Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod
+          tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex
+          ea commodi consequat. Quis aute iure reprehenderit in voluptate velit
+          esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat
+          cupiditat non proident, sunt in culpa qui officia deserunt mollit
+          anim id est laborum.</div></state-display>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
