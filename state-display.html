@@ -45,20 +45,35 @@
         const ctx = this.$.canvas.getContext('2d');
         const size = this.$.canvas.width;
 
-        console.log(this.state);
-        ctx.fillStyle = this.state;
+        let color = function(state){
+            switch(state){
+              case 'white':  return '#eeeeee';
+              case 'green':  return '#33ff33';
+              case 'yellow': return '#ffdd00';
+              case 'red':    return '#ff0000';
+            }
+          }(this.state);
 
+        let mid = size / 2;
+        let cirle_size = 0.40 * size;
+
+        let grd = ctx.createRadialGradient(mid, mid, cirle_size, mid, mid, 0);
+        grd.addColorStop(0.0, color);
+        grd.addColorStop(0.1, color);
+        grd.addColorStop(1.0, "#fff");
+        ctx.fillStyle = grd;
+        ctx.shadowBlur = 0.08 * size;
+        ctx.shadowColor = color;
         ctx.strokeStyle = '#000';
-        ctx.lineWidth = size * 0.03;
 
         ctx.beginPath();
-        ctx.arc(size / 2, size / 2, 0.47 * size, 0, 2 * Math.PI);
+        ctx.arc(mid, mid, cirle_size, 0, 2 * Math.PI);
         ctx.fill();
         ctx.stroke();
       }
 
       _resize(){
-        let size = parseFloat(getComputedStyle(this.parentNode).fontSize);
+        let size = parseFloat(getComputedStyle(this.$.canvas).lineHeight);
         this.$.canvas.width = size;
         this.$.canvas.height = size;
 
