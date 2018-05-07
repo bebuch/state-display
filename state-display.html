@@ -47,7 +47,7 @@
 
         let color = function(state){
             switch(state){
-              case 'white':  return '#eeeeee';
+              case 'white':  return '#e0e0e0';
               case 'green':  return '#33ff33';
               case 'yellow': return '#ffdd00';
               case 'red':    return '#ff0000';
@@ -58,17 +58,24 @@
           }(this.state);
 
         let mid = size / 2;
-        let cirle_size = 0.30 * size;
+        let cirle_size = 0.49 * size;
 
         let grd = ctx.createRadialGradient(mid, mid, cirle_size, mid, mid, 0);
+        grd.addColorStop(0.0, "#fff");
+        grd.addColorStop(0.5, color);
+        grd.addColorStop(1.0, color);
+        ctx.fillStyle = grd;
+        ctx.beginPath();
+        ctx.arc(mid, mid, cirle_size, 0, 2 * Math.PI);
+        ctx.fill();
+
+        cirle_size = 0.30 * size;
+        grd = ctx.createRadialGradient(mid, mid, cirle_size, mid, mid, 0);
         grd.addColorStop(0.0, color);
         grd.addColorStop(0.1, color);
         grd.addColorStop(1.0, "#fff");
         ctx.fillStyle = grd;
-        ctx.shadowBlur = 0.13 * size;
-        ctx.shadowColor = color;
         ctx.strokeStyle = '#000';
-
         ctx.beginPath();
         ctx.arc(mid, mid, cirle_size, 0, 2 * Math.PI);
         ctx.fill();
