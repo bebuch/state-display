@@ -6,12 +6,11 @@
     <style>
       /* shadow DOM styles go here */
       :host {
-        display: block;
+        display: inline;
       }
     </style>
 
-    <canvas style="vertical-align:middle;" id="canvas"></canvas>
-    <span style="vertical-align:middle;padding-left:0.5em;"><slot></slot></span>
+    <canvas id="canvas" style="vertical-align:middle;width:[[size]];height:[[size]];"></canvas>
   </template>
 
   <script>
@@ -28,6 +27,10 @@
             reflectToAttribute: true,
             observer: '_draw'
           },
+          size: {
+            type: String,
+            value: '1em'
+          }
         };
       }
 
@@ -84,7 +87,7 @@
       }
 
       _resize(){
-        let size = parseFloat(getComputedStyle(this.$.canvas).lineHeight);
+        let size = this.$.canvas.clientWidth;
         this.$.canvas.width = size;
         this.$.canvas.height = size;
 

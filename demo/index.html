@@ -28,39 +28,46 @@
 
           <h3>Statically configured state-displays</h3>
 
-          <state-display state="white">White</state-display>
-          <state-display state="green">Green</state-display>
-          <state-display state="yellow">Yellow</state-display>
-          <state-display state="red">Red</state-display>
+          <div><state-display state="white"></state-display> White
+          <div><state-display state="green"></state-display> Green
+          <div><state-display state="yellow"></state-display> Yellow
+          <div><state-display state="red"></state-display> Red
 
-          <state-display state="white">Lorem ipsum dolor sit amet, consectetur
+          <div>
+          <state-display state="white"></state-display>
+          Lorem ipsum dolor sit amet, consectetur
           adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna
           aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
           laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
-          </state-display>
+          </div>
 
-          <state-display state="white">
-          <div style="display:block;padding-left:1.5em; margin-top:-1.5em;">
-          Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod
-          tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex
-          ea commodi consequat. Quis aute iure reprehenderit in voluptate velit
-          esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat
-          cupiditat non proident, sunt in culpa qui officia deserunt mollit
-          anim id est laborum.</div></state-display>
+          <div style="position:relative;">
+            <div style="display:block;padding-left:1.5em;">
+              <state-display state="white" style="position:absolute;left:0;"></state-display>
+              <div style="position:relative;">
+                Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod
+                tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex
+                ea commodi consequat. Quis aute iure reprehenderit in voluptate velit
+                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat
+                cupiditat non proident, sunt in culpa qui officia deserunt mollit
+                anim id est laborum.
+              </div>
+            </div>
+          </div>
 
-          <state-display style="line-height:2em;" state="white">White</state-display>
-          <state-display style="line-height:2em;" state="green">Green</state-display>
-          <state-display style="line-height:2em;" state="yellow">Yellow</state-display>
-          <state-display style="line-height:2em;" state="red">Red</state-display>
+          <div style="font-size:2em;"><state-display state="white"></state-display>White</div>
+          <div style="font-size:2em;"><state-display state="green"></state-display>Green</div>
+          <div style="font-size:2em;"><state-display state="yellow"></state-display>Yellow</div>
+          <div style="font-size:2em;"><state-display state="red"></state-display>Red</div>
 
-          <state-display style="line-height:3em;" state="white">White</state-display>
-          <state-display style="line-height:3em;" state="green">Green</state-display>
-          <state-display style="line-height:3em;" state="yellow">Yellow</state-display>
-          <state-display style="line-height:3em;" state="red">Red</state-display>
+          <div style="font-size:3em;"><state-display state="white"></state-display>White</div>
+          <div style="font-size:3em;"><state-display state="green"></state-display>Green</div>
+          <div style="font-size:3em;"><state-display state="yellow"></state-display>Yellow</div>
+          <div style="font-size:3em;"><state-display state="red"></state-display>Red</div>
         </template>
       </demo-snippet>
     </div>
