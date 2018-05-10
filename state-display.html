@@ -6,11 +6,13 @@
     <style>
       /* shadow DOM styles go here */
       :host {
-        display: inline;
+        display: inline-block;
       }
     </style>
 
-    <canvas id="canvas" style="vertical-align:middle;width:[[size]];height:[[size]];"></canvas>
+    <span style="position:relative;margin-right:[[size]]">
+      <canvas id="canvas" style="position:absolute;top:calc(50% - [[size]] / 2);width:[[size]];height:[[size]];"></canvas>
+    </span>
   </template>
 
   <script>
